@@ -1,5 +1,6 @@
 <?php
-include("../category.php");
+include_once("../category.php");
+include_once("../ques.php");
 $obj = new Category;
 $result = $obj->getData();
 if ($result == false) {
@@ -16,8 +17,16 @@ if(isset($_POST['addques'])){
     $opt3=test_input(($_POST['opt3']));
     $opt4=test_input(($_POST['opt4']));
     $ans=test_input($_POST['ans']);
-    echo $category." ".$ques." ".$opt1." ".$opt2." ".$opt3." ".$opt4." ".$ans;
+    $obj2=new Quest;
+    $data=$obj2->insert($ques,$opt1,$opt2,$opt3,$opt4,$ans,$category);
+    if($data==true){
+        echo "<script>alert('Question Added Successfully');</script>";
+    }else{
+        echo "<script>alert('Failed to add Question');</script>";
+    }
+    // echo $category." ".$ques." ".$opt1." ".$opt2." ".$opt3." ".$opt4." ".$ans;
     // echo "<script>alert($category);</script>";
+    
 }
 
 function test_input($data) {
