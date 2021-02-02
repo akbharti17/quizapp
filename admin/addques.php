@@ -10,22 +10,22 @@ if ($result == false) {
 }
 
 if(isset($_POST['addques'])){
-    $category=test_input($_POST['cat']);
     $ques=test_input($_POST['ques']);
     $opt1=test_input(($_POST['opt1']));
     $opt2=test_input(($_POST['opt2']));
     $opt3=test_input(($_POST['opt3']));
     $opt4=test_input(($_POST['opt4']));
     $ans=test_input($_POST['ans']);
-    $obj2=new Quest;
-    $data=$obj2->insert($ques,$opt1,$opt2,$opt3,$opt4,$ans,$category);
-    if($data==true){
+    $category=test_input($_POST['cat']);
+    // echo $category,$ques,$opt1,$opt2,$opt3,$opt4,$ans;
+    $qobj=new Quest;
+    $status=$qobj->insert($ques, $opt1, $opt2, $opt3, $opt4, $ans, $category);
+    if($status==true){
         echo "<script>alert('Question Added Successfully');</script>";
     }else{
         echo "<script>alert('Failed to add Question');</script>";
     }
-    // echo $category." ".$ques." ".$opt1." ".$opt2." ".$opt3." ".$opt4." ".$ans;
-    // echo "<script>alert($category);</script>";
+    
     
 }
 

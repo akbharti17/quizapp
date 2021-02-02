@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
     }else{
         if($email==$data['email_id'] && $password==$data['password'] && $data['is_admin']==0){
             $_SESSION['email']=$data['email_id'];
+            $_SESSION['name']=$data['name'];
             echo 'login';
             header('location: user/userdashboard.php');
         }else if($email==$data['email_id'] && $password==$data['password'] && $data['is_admin']==1){

@@ -12,9 +12,20 @@
 </head>
 
 <body>
-<?php include("header.php"); ?>
+    <?php include("header.php"); ?>
 
-<h1 class='text-center my-3'>Start Quiz</h1>
+    <h1 class='text-center my-3'>Quiz Game</h1>
+    <div class="container">
+        <div class="jumbotron">
+            <h3>Quiz Instructions</h3>
+            <p>
+                The quizzes consists of questions carefully designed to help you self-assess your comprehension of
+                the information presented on the topics covered in the module. No data will be collected on the website regarding your responses or how many times you take the quiz.
+            </p>
+        </div>
+        <p>This is some text.</p>
+        <p>This is another text.</p>
+    </div>
 
 </body>
 
