@@ -2,16 +2,23 @@
 session_start();
 include("../ques.php");
 if (isset($_POST['submit'])) {
-    $userans = $_POST['ans'];
-    $obj = new Quest;
-    $sc = 0;
-    $resultar = $obj->getAll();
-    while ($row = $resultar->fetch_assoc()) {
-        foreach ($userans as $key => $val) {
-            if ($row['ans'] == $val) {
-                $sc++;
+    
+    if (!empty($_POST['ans'])) {
+        $userans = $_POST['ans'];
+        $n=count($userans);
+        $obj = new Quest;
+        $sc = 0;
+        $resultar = $obj->getAll();
+        while ($row = $resultar->fetch_assoc()) {
+            foreach ($userans as $key => $val) {
+                if ($row['ans'] == $val) {
+                    $sc++;
+                }
             }
         }
+    }else{
+        $sc=0;
+        $n=0;
     }
 }
 ?>
@@ -30,14 +37,16 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-<?php include("header.php"); ?>
+    <?php include("header.php"); ?>
 
-<div class="container my-5 text-center">
-  <div class="jumbotron">
-    <h1>Result</h1>      
-    <p>Your Score is : <?php echo $sc; ?></p>
-  </div>   
-</div>
+    <div class="container my-5 text-center">
+        <div class="jumbotron">
+            <h1>Result</h1>
+            <p>Total Attempt : <?php echo $n; ?></p>
+            <p>Your Score is : <?php echo $sc; ?></p>
+
+        </div>
+    </div>
 
 </body>
 

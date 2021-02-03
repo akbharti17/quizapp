@@ -19,12 +19,19 @@
         <div class="jumbotron">
             <h3>Quiz Instructions</h3>
             <p>
-                The quizzes consists of questions carefully designed to help you self-assess your comprehension of
-                the information presented on the topics covered in the module. No data will be collected on the website regarding your responses or how many times you take the quiz.
+            <ul>
+                <li>
+                    The quizzes consists of questions carefully designed to help you self-assess your comprehension of
+                    the information presented on the topics covered in the module. No data will be collected on the website regarding your responses or how many times you take the quiz.
+                </li>
+                <li>There is no negative marking and each question carry 1 mark.</li>
+                <li>Moreover, have a hit on the ‘Submit Test’ button arranged at the end of this page to submit the responses.</li>
+                <li>login to start test</li>
+            </ul>
             </p>
         </div>
-        <p>This is some text.</p>
-        <p>This is another text.</p>
+       <a href="signup.php" class="btn btn-outline-success">Register Here</a>
+       <a href="login.php" class="btn btn-outline-primary">login</a>
     </div>
 
 </body>
