@@ -1,11 +1,14 @@
 <?php
 session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: ../logout.php");
+}
 include("../ques.php");
 if (isset($_POST['submit'])) {
-    
+
     if (!empty($_POST['ans'])) {
         $userans = $_POST['ans'];
-        $n=count($userans);
+        $n = count($userans);
         $obj = new Quest;
         $sc = 0;
         $resultar = $obj->getAll();
@@ -16,10 +19,13 @@ if (isset($_POST['submit'])) {
                 }
             }
         }
-    }else{
-        $sc=0;
-        $n=0;
+    } else {
+        $sc = 0;
+        $n = 0;
     }
+} else {
+    $sc = 0;
+    $n = 0;
 }
 ?>
 
@@ -42,8 +48,8 @@ if (isset($_POST['submit'])) {
     <div class="container my-5 text-center">
         <div class="jumbotron">
             <h1>Result</h1>
-            <p>Total Attempt : <?php echo $n; ?></p>
-            <p>Your Score is : <?php echo $sc; ?></p>
+            <h5>Total Attempt : <?php echo $n; ?></h5>
+            <h5>Your Score is : <?php echo $sc; ?></h5>
 
         </div>
     </div>
