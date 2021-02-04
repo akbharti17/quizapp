@@ -11,6 +11,7 @@ include("user.php");
          $datastatus=$obj->insert($name, $email, $pass);
          if($datastatus==true){
              echo "<script>alert('Register Successfully');</script>";
+             header("Refresh:0; url=login.php");
          }else{
             echo "<script>alert('failed to register');</script>";
          }

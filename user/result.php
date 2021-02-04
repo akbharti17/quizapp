@@ -50,6 +50,7 @@ if (isset($_POST['submit'])) {
             <h1>Result</h1>
             <h5>Total Attempt : <?php echo $n; ?></h5>
             <h5>Your Score is : <?php echo $sc; ?></h5>
+            <h5><?php if($sc<3){echo "You Are Failed";}else{ echo "You are Passed";} ?></h5>
 
         </div>
     </div>
