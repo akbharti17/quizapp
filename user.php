@@ -10,7 +10,7 @@ class User
         $this->con = $obj->dbconnection();
     }
 
-    function insert($name, $email, $password)
+    function signup($name, $email, $password)
     {
         $q = "INSERT INTO `tbl_user`(name,email_id,password) VALUES ('$name','$email','$password')";
         if($this->con->query($q)===TRUE){

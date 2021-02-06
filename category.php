@@ -8,8 +8,8 @@ class Category{
         $this->con=$db->dbconnection();
 
     }
-    function insert($cat,$no){
-        $q="INSERT INTO `exam_category`(`category`, `quesno`) VALUES ('$cat','$no')";
+    function insertCat($cat){
+        $q="INSERT INTO `exam_category`(`category`) VALUES ('$cat')";
         if($this->con->query($q)===TRUE){
             return true;
         }else{
@@ -18,7 +18,7 @@ class Category{
 
     }
 
-    function getData(){
+    function getCat(){
         $q="SELECT * FROM `exam_category`";
         $data=$this->con->query($q);
         if($data->num_rows>0){

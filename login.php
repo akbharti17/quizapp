@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
             header('location: admin/index.php');
         }
         else{
-            echo "failed to login";
+            echo "<script>failed to login</script>";
         }
     }
 

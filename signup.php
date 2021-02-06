@@ -8,7 +8,7 @@ include("user.php");
 
      if($pass==$cpass){
          $obj=new User;
-         $datastatus=$obj->insert($name, $email, $pass);
+         $datastatus=$obj->signup($name, $email, $pass);
          if($datastatus==true){
              echo "<script>alert('Register Successfully');</script>";
              header("Refresh:0; url=login.php");

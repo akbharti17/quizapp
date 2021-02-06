@@ -25,6 +25,4 @@ class Dbconnect
     }
 }
 
-// $db=new Dbconnect;
-// $con=$db->dbconnection();
 

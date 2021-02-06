@@ -35,7 +35,6 @@ if (!isset($_SESSION['email'])) {
             <?php
             include("../ques.php");
             $cat = $_GET['id'];
-            // echo $cat;
 
             $obj = new Quest;
             $result = $obj->getQues($cat);
@@ -61,16 +60,20 @@ if (!isset($_SESSION['email'])) {
                 echo "</div>";
             }
             ?>
-            <a href="#" id="prev" class="prev btn btn-danger">Previous</a>
-            <a href="#" id="next" class="next btn btn-primary">Next</a>
+            <a id="prev" class="prev btn btn-danger">Previous</a>
+            <a id="next" class="next btn btn-primary">Next</a>
             <div class="text-center my-4"><input type="submit" name="submit" value="Submit Test" class="btn btn-success" id='sb'></div>
-            <!-- <div></div> -->
+
         </form>
     </div>
 
 </body>
 <script>
     $(document).ready(function() {
+        $('body').bind('copy paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
         $(".divs .question").each(function(e) {
             if (e != 0)
                 $(this).hide();
@@ -79,14 +82,10 @@ if (!isset($_SESSION['email'])) {
         $("#next").click(function() {
             if ($(".divs .question:visible").next().length != 0)
                 $(".divs .question:visible").next().show().prev().hide();
-            console.log(is($(".divs .question:last")));
-            if ($(".divs .question:last")) {
-                $('#next').attr("disabled", true);
-                // $("#next").replaceWith("<input type='submit' name='submit' value='submit' class='btn btn-success id='sb'>");
-                // $("#sb").show();
-            } else {
-                $(".divs .question:visible").hide();
-                $(".divs .question:first").show();
+
+            if ($(".divs .question").is(":last")) {
+                $('#next').attr("disabled", true).hide();
+
             }
             return false;
         });
@@ -96,31 +95,42 @@ if (!isset($_SESSION['email'])) {
                 $(".divs .question:visible").prev().show().next().hide();
             if ($(".divs .question:first")) {
                 $('#prev').attr("disabled", true);
-            } else {
-                $(".divs .question:visible").hide();
-                $(".divs .question:last").show();
             }
             return false;
         });
         var min = 5;
         var sec = 0;
         var timer = setInterval(() => {
-            if (min ==0 && sec==0) {
+            if (min == 0 && sec == 0) {
                 alert("Your Time Is Out");
                 document.getElementById("sb").click();
-                $("#timer").text(00+ ':' + 00);
+                $("#timer").text(00 + ':' + 00);
                 clearInterval(timer);
             }
             if (sec == 0) {
                 min--;
                 sec = 60;
             }
-           
+
 
             sec--;
             $("#timer").text(min + ':' + sec);
 
         }, 1000);
+
+        $('#next').click(function() {
+            $(".question").siblings().each(function() {
+                console.log('hello');
+            });
+        });
+
+
+        if ($('.divs .question').is(':first')) {
+            $("#prev").hide();
+        } else {
+            $("#prev").show();
+        }
+
 
 
 

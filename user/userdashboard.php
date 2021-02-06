@@ -7,7 +7,7 @@ if (!isset($_SESSION['email'])) {
 include_once("../category.php");
 // include_once("../ques.php");
 $obj = new Category;
-$result = $obj->getData();
+$result = $obj->getCat();
 if ($result == false) {
     echo "<script>alert('failed to fetch');</script>";
 } else {

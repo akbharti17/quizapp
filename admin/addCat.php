@@ -2,9 +2,9 @@
 include("../category.php");
 if(isset($_POST['add'])){
     $catagory=test_input($_POST['category']);
-    $no=test_input($_POST['no']);
+    // $no=test_input($_POST['no']);
     $obj=new Category;
-    $status=$obj->insert($catagory,$no);
+    $status=$obj->insertCat($catagory);
     if($status==true){
         echo "<script>alert('Category Added Successfully');</script>";
     }else{
@@ -47,10 +47,10 @@ function test_input($data) {
                         <label for="">Enter Category</label>
                         <input type="text" class="form-control" name="category">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="">Enter No. of question</label>
                         <input type="number" class="form-control" name="no">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <input type="submit" class="form-control btn btn-primary" name="add" value="Add category">
                     </div>
