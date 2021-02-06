@@ -12,7 +12,7 @@ if (!empty($_POST['ans'])) {
     $resultar = $obj->getAllques();
     while ($row = $resultar->fetch_assoc()) {
         foreach ($userans as $key => $val) {
-            if ($row['ans'] == $val && $key==$row['id']) {
+            if ($row['ans'] == $val && $key == $row['id']) {
                 $sc++;
             }
         }
