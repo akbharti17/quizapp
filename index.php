@@ -26,7 +26,7 @@
                 </li>
                 <li>There is no negative marking and each question carry 1 mark.</li>
                 <li>Moreover, have a hit on the ‘Submit Test’ button arranged at the end of this page to submit the responses.</li>
-                <li>If your are new Signup and login to start test</li>
+                <li>First Time on QuizGame then signup and login to start test</li>
                 <li>Otherwise login to start test</li>
 
             </ul>

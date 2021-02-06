@@ -88,19 +88,21 @@ function test_input($data) {
                         <input type="text" class="form-control my-2" placeholder="option 4" name="opt4" id="p4" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Enter Answer</label>
-                        <input type="text" class="form-control" name="ans" required>
-                    </div>
-                    <!-- <div class="form-group">
-                        <label for="">Enter Answer</label>
-                        <select name="" id="">
+                        <!-- <label for="">Enter Answer</label>
+                        <input type="text" class="form-control" name="ans" required> -->
+                        <label for="">Select Answer</label>
+                        <select name="ans" class="form-control" required>
+                        <!-- <option value="">--select answer--</option> -->
                         <option value="" id="op1"></option>
                         <option value="" id="op2"></option>
                         <option value="" id="op3"></option>
                         <option value="" id="op4"></option>
                         </select>
                     </div>
-                    <div class="form-group"> -->
+                    <div class="form-group">
+                        
+                    </div>
+                    <div class="form-group">
                         <input type="submit" class="form-control btn btn-primary" value="Add Question" name="addques">
                     </div>
                 </form>
@@ -109,19 +111,19 @@ function test_input($data) {
         </div>
     </div>
     <script>
-    // $(document).ready(function(){
-    //     $("#p4").focusout(function(){
-    //         var op1=$("#p1").val();
-    //         var op2=$("#p2").val();
-    //         var op3=$("#p3").val();
-    //         var op4=$("#p4").val();
-    //         $('#op1').val(op1).text(op1);
-    //         $('#op2').val(op2).text(op2);
-    //         $('#op3').val(op3).text(op3);
-    //         $('#op4').val(op1).text(op1);
-    //     })
+    $(document).ready(function(){
+        $("#p1,#p2,#p3,#p4").focusout(function(){
+            var op1=$("#p1").val();
+            var op2=$("#p2").val();
+            var op3=$("#p3").val();
+            var op4=$("#p4").val();
+            $('#op1').val(op1).text(op1);
+            $('#op2').val(op2).text(op2);
+            $('#op3').val(op3).text(op3);
+            $('#op4').val(op1).text(op4);
+        })
 
-    // })
+    })
     </script>
 </body>
 

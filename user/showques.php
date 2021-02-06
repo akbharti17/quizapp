@@ -70,10 +70,10 @@ if (!isset($_SESSION['email'])) {
 </body>
 <script>
     $(document).ready(function() {
-        $('body').bind('copy paste', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        // $('body').bind('copy paste', function(e) {
+        //     e.preventDefault();
+        //     return false;
+        // });
         $(".divs .question").each(function(e) {
             if (e != 0)
                 $(this).hide();
@@ -84,7 +84,7 @@ if (!isset($_SESSION['email'])) {
                 $(".divs .question:visible").next().show().prev().hide();
 
             if ($(".divs .question").is(":last")) {
-                $('#next').attr("disabled", true).hide();
+                $('#next').attr("disabled", true);
 
             }
             return false;

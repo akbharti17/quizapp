@@ -38,7 +38,7 @@ if ($result == false) {
   for($i=0;$i<$n;$i++){
     $row=$result->fetch_assoc();
     ?>
-    <a class="btn btn-outline-info my-2" href="showques.php?id=<?php echo $row['category'];?>"  id="<?php echo $row['category']; ?>"  style="width: 20%;padding:10px;"><?php echo $row['category'];?></a><br>
+    <a class="btn btn-outline-info my-2" href="newshowques.php?id=<?php echo $row['category'];?>"  id="<?php echo $row['category']; ?>"  style="width: 20%;padding:10px;"><?php echo $row['category'];?></a><br>
     <?php
   }
 

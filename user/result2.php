@@ -4,29 +4,24 @@ if (!isset($_SESSION['email'])) {
     header("Location: ../logout.php");
 }
 include("../ques.php");
-if (isset($_POST['submit'])) {
-
-    if (!empty($_POST['ans'])) {
-        $userans = $_POST['ans'];
-        $n = count($userans);
-        $obj = new Quest;
-        $sc = 0;
-        $resultar = $obj->getAllques();
-        while ($row = $resultar->fetch_assoc()) {
-            foreach ($userans as $key => $val) {
-                if ($row['ans'] == $val ) {
-                    $sc++;
-                }
+$sc = 0;
+if (!empty($_POST['ans'])) {
+    $userans = $_POST['ans'];
+    $n = count($userans);
+    $obj = new Quest;
+    $resultar = $obj->getAllques();
+    while ($row = $resultar->fetch_assoc()) {
+        foreach ($userans as $key => $val) {
+            if ($row['ans'] == $val && $key==$row['id']) {
+                $sc++;
             }
         }
-    } else {
-        $sc = 0;
-        $n = 0;
     }
 } else {
     $sc = 0;
     $n = 0;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -47,8 +42,10 @@ if (isset($_POST['submit'])) {
 
     <div class="container my-5 text-center">
         <div class="jumbotron">
-            <h1>Result</h1>
-            <h5>Total Attempt : <?php echo $n; ?></h5>
+            <h4>Result</h4>
+            <!-- <h3></h3> -->
+            <h5>Total Question : 10</h5>
+            <h5>Attempt Question: <?php echo $n; ?></h5>
             <h5>Your Score is : <?php echo $sc; ?></h5>
             <h5><?php if ($sc < 3) {
                     echo "You Are Failed";
@@ -57,7 +54,9 @@ if (isset($_POST['submit'])) {
                 } ?></h5>
 
         </div>
+        <div class="container"><a href="userdashboard.php" class="btn btn-info">Back to Dashboard</a></div>
     </div>
+
 
 </body>
 
