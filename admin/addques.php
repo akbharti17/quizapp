@@ -1,6 +1,10 @@
 <?php
 include_once("../category.php");
 include_once("../ques.php");
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: ../logout.php");
+}
 $obj = new Category;
 $result = $obj->getCat();
 if ($result == false) {

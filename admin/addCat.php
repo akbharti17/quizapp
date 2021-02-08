@@ -1,5 +1,9 @@
 <?php 
 include("../category.php");
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: ../logout.php");
+}
 if(isset($_POST['add'])){
     $catagory=test_input($_POST['category']);
     // $no=test_input($_POST['no']);
@@ -45,7 +49,7 @@ function test_input($data) {
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                     <div class="form-group">
                         <label for="">Enter Category</label>
-                        <input type="text" class="form-control" name="category">
+                        <input type="text" class="form-control" name="category" required>
                     </div>
                     <!-- <div class="form-group">
                         <label for="">Enter No. of question</label>
